@@ -53,18 +53,18 @@ class Editora {
     public:
         Editora() {};
 
-/*
-        Editora(const Editora& c)
+
+        Editora(const Editora *c)
         {
           std::cout<<"Copy"<<std::endl;
-          this->nome =c.nome;
-          this->ano  =c.ano;
-          for (const std::string &s: c.cancoes)
+          this->nome =c->nome;
+          this->ano  =c->ano;
+          for (const std::string &s: c->cancoes)
           {
               this->cancoes.push_back(s);
           }
         }
-        */
+        
         Editora(string novoNome, int novoAno, vector<string> novasCancoes)
             : nome(novoNome), ano(novoAno), cancoes(novasCancoes) {}
 
@@ -202,6 +202,7 @@ void menuEditora( Editora &editora) {
             system("clear");
             cout << "Lista de canções da editora " << editora.getNome() << ":" << endl;
             cout << editora.listaCancoes();
+            cout << "" << endl;
             break;
     }
 
