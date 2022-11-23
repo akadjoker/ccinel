@@ -1,0 +1,8 @@
+# depslib dependency file v1.0
+1669222583 source:/media/djoker/data/code/curso cpp/editoras/main.cpp
+	<iostream>
+	<vector>
+	<string>
+	<limits>
+	<sstream>
+
