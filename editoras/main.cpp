@@ -5,7 +5,15 @@
 #include <sstream>
 using namespace std;
 
+void clear()
+{
+#ifdef __linux__
+system("clear");
+#elif _WIN32
+system("cls");
 
+#endif
+}
 
 void * operator new(size_t size)
 {
@@ -167,7 +175,6 @@ void menuEditora(vector<Editora> &lista,int index) {
 
 void menuEditora( Editora &editora) {
 
-   // system("clear");
     int input;
     string inputString;
     cout << endl << endl << "Menu da Editora " << editora.getNome() << ": " << endl;
@@ -185,24 +192,24 @@ void menuEditora( Editora &editora) {
         case 0:
             break;
         case 1:
-            system("clear");
+            clear();
             cout << "Por favor, escreva o nome da canção a adicionar:" << endl;
             getline(cin, inputString);
             editora.adicionarCancao(inputString);
 
             break;
         case 2:
-              system("clear");
+            clear();
             cout << "Por favor, escreva o nome da canção a remover:" << endl;
             getline(cin, inputString);
             editora.removerCancao(inputString);
             break;
 
         case 3:
-            system("clear");
+            clear();
             cout << "Lista de canções da editora " << editora.getNome() << ":" << endl;
-            cout << editora.listaCancoes();
-            cout << "" << endl;
+            cout << editora.listaCancoes() << endl;
+      
             break;
     }
 
@@ -263,7 +270,7 @@ int main() {
             }
             case 1:
             {
-                 system("clear");
+                 clear();
                 string nomeNovaEditora;
                 int anoNovaEditora;
                 vector<string> listaCancoesNovaEditora = {};
@@ -300,7 +307,7 @@ int main() {
 
             case 2:
             {
-                 system("clear");
+                 clear();
                 cout << "Por favor, escreva o nome da editora a remover:" << endl;
                 string inputString;
                 getline(cin, inputString);
@@ -321,7 +328,7 @@ int main() {
 
             case 3:
             {
-                system("clear");
+                clear();
                 cout << "Por favor, escreva o nome da editora a ver:" << endl;
                 string inputString;
                 cin.ignore ();
